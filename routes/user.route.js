@@ -7,4 +7,4 @@ router.get('/', controller.index);
 
 module.exports = router; // Note
 
-// Day la ghi chu
+// Day la ghi chu 1
