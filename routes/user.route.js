@@ -6,3 +6,5 @@ var router = express.Router();
 router.get('/', controller.index);
 
 module.exports = router; // Note
+
+// Day la ghi chu
