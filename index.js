@@ -3,11 +3,10 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 
-var userRoute = require('./routes/user.route');
-console.log(userRoute);
+let userRoute = require('./routes/user.route');
 
 
-var port = 3000;
+const port = 3000;
 
 
 

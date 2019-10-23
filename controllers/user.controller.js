@@ -4,6 +4,11 @@ module.exports.index = function (req, res) {
 };
 
 
+module.exports.register = function (req, res) {
+    res.render('users/registerUser');
+};
+
+
 
 
 
