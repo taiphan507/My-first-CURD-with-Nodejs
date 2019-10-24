@@ -15,13 +15,12 @@ module.exports.postRegister = function (req, res) {
         phone: req.body.phone,
         email: req.body.email,
         password: req.body.password,
-        confirmPassword: req.body.confirmPassword,
+        confirmPassword: req.body.confirmpassword,
         gender: req.body.gender,
         dateofbirth: req.body.dateofbirth
 
     });
     registerSchema.save();
-    console.log('aaaa');
     res.redirect('/users');
 
 };

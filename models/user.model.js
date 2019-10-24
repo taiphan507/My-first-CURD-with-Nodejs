@@ -4,33 +4,22 @@ let registerSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
-        minlength: 5,
-        maxlength: 50
     },
     phone: {
         type: String,
         require: true,
-        minlength: 1,
-        maxlength: 15
     },
     email: {
         type: String,
         require: true,
-        minlength: 5,
-        maxlength: 255,
-        unique: true
     },
     password: {
         type: String,
         require: true,
-        minlength: 8,
-        maxlength: 100
     },
     confirmPassword: {
         type: String,
         require: true,
-        minlength: 8,
-        maxlength: 100
     },
     gender: {
         type: String,
@@ -44,12 +33,12 @@ let registerSchema = new mongoose.Schema({
     created_at: {
         type: Date,
         default: Date.now,
-        required: true
+        require: true
     },
     updated_at: {
         type: Date,
         default: Date.now,
-        required: true
+        require: true
     }
 
 });
