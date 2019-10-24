@@ -15,28 +15,29 @@ block content
 		
 		.form-group
 			label(for="phone") SDT
-			input#phone.form-control(type="text", name="phone", value=values ? values.phone : "")
+			input#phone.form-control(type="text", name="phone")
 		
 		.form-group
 			label(for="email") Email
-			input#email.form-control(type="text", name="email", value=values ? values.email : "")
+			input#email.form-control(type="text", name="email")
 		
 		.form-group
 			label(for="password") Mật khẩu
-			input#password.form-control(type="password", name="password", value=values ? values.password : "")
+			input#password.form-control(type="password", name="password")
 		
 		.form-group
 			label(for="confirmpassword") Xác nhận mật khẩu
-			input#confirmpassword.form-control(type="password", name="confirmpassword", value=values ? values.confirmpassword : "")
+			input#confirmpassword.form-control(type="password", name="confirmpassword")
 		
-		.form-group-sm
+		.form-group
 			p Giới tính
-			label(for="male") Nam
-			input#male.form-control(type="radio", name="male", value=values ? values.male : "")
-			label(for="female") Nữ
-			input#female.form-control(type="radio", name="female", value=values ? values.female : "")
+			label.radio-inline(for="gender") Nam
+				input#gender.form-control(type="radio", name="gender", checked)
+			label.radio-inline(for="gender") Nữ
+				input#gender.form-control(type="radio", name="gender")
+		
 		.form-group
 			label(for="dateofbirth") Ngày sinh
-			input#dateofbirth.form-control(type="date", name="dateofbirth", value=values ? values.dateofbirth : "")
+			input#dateofbirth.form-control(type="date", name="dateofbirth")
 		
 		button.btn.btn-primary Đăng ký

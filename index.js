@@ -2,14 +2,17 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 
-let userRoute = require('./routes/user.route');
+var userRoute = require('./routes/user.route');
 
 
 const port = 3000;
 
 
-
+// app.use(bodyParser.urlencoded({ useNewUrlParser: true }));
+app.use(bodyParser.urlencoded({ useNewUrlParser: true }));
+app.use(bodyParser.json());
 app.set('view engine', 'pug');
 app.set('views', './views');
 

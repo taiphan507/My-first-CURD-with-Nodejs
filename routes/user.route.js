@@ -7,6 +7,8 @@ router.get('/', controller.index);
 
 router.get('/registerUser', controller.register);
 
+router.post('/register', controller.postRegister);
+
 module.exports = router; // Note
 
 // Day la ghi chu 1
