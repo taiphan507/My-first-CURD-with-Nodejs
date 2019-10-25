@@ -29,18 +29,7 @@ let registerSchema = new mongoose.Schema({
     dateofbirth: {
         type: String,
         default: "01/1/1970"
-    },
-    created_at: {
-        type: Date,
-        default: Date.now,
-        require: true
-    },
-    updated_at: {
-        type: Date,
-        default: Date.now,
-        require: true
     }
-
 });
 
 let User = mongoose.model('User', registerSchema, 'users');
