@@ -1,11 +1,9 @@
 let express = require('express');
 var controller = require('../controllers/user.controller');
-let router = express.Router();
-
 var validate = require('../validate/registeruser.validate');
 
+let router = express.Router();
 
-router.get('/', controller.index);
 
 router.get('/registerUser', controller.register);
 
