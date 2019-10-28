@@ -2,6 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 
 mongoose.set('useCreateIndex', true);
@@ -14,6 +15,7 @@ var authRoute = require('./routes/auth.route');
 const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set('view engine', 'pug');
 app.set('views', './views');
