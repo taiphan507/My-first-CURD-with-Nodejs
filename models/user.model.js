@@ -7,11 +7,11 @@ let registerSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        require: true,
+        require: true
     },
     email: {
         type: String,
-        require: true,
+        require: true
     },
     password: {
         type: String,
@@ -29,6 +29,16 @@ let registerSchema = new mongoose.Schema({
     dateofbirth: {
         type: String,
         default: "01/1/1970"
+    },
+    created_at: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
+    updated_at: {
+        type: Date,
+        default: Date.now,
+        required: true
     }
 });
 
