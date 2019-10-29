@@ -5,39 +5,36 @@ module.exports.login = function (req, res) {
     res.render('users/login');
 };
 
-module.exports.postLogin = function (req, res) {
+module.exports.postLogin = async function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
 
-    User.find({ email: email }).then(function (value) {
-        console.log(value);// Find ra mot mang gom cac obj
-        if (!value[0]) {
-            res.render('users/login', {
-                errors: [
-                    'User does not exist.'
-                ],
-                values: req.body
-            });
-            return;
-        }
+    var user = await User.find({ email: email });
+    console.log(user);
+    if (!user.length) {
+        res.render('users/login', {
+            errors: [
+                'User does not exist.'
+            ],
+            values: req.body
+        });
+        return;
+    }
 
-        // var hasdedPassword = md5(password);//password of user request to server
+    var hasdedPassword = md5(password);//password of user request to server
+    if (user[0].password !== hasdedPassword) {
+        res.render('users/login', {
+            errors: [
+                'Wrong passowrd.'
+            ],
+            values: req.body
+        });
+        return;
+    }
 
-        if (value[0].password !== password) {
-            res.render('users/login', {
-                errors: [
-                    'Wrong passowrd.'
-                ],
-                values: req.body
-            });
-            return;
-        }
-
-        // res.cookie('userId', user._id, {
-        //     signed: true
-        // });
-        res.redirect('/products');
-    });
-
+    // res.cookie('userId', user._id, {
+    //     signed: true
+    // });
+    res.redirect('/products');
 
 };

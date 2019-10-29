@@ -7,6 +7,9 @@ block content
 	if errors
 		each error in errors
 			.alert.alert-danger= error
+	if success
+		each succes in success
+			.alert.alert-primary= succes
 
 	form(action="/users/register", method="POST")
 		.form-group

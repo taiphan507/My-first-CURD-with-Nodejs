@@ -39,6 +39,10 @@ let registerSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         required: true
+    },
+    role: {
+        type: Number,
+        default: "1"
     }
 });
 
