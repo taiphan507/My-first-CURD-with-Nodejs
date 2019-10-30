@@ -8,7 +8,6 @@ module.exports.login = function (req, res) {
 module.exports.postLogin = async function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
-
     var user = await User.find({ email: email });
     console.log(user);
     if (!user.length) {
@@ -32,9 +31,9 @@ module.exports.postLogin = async function (req, res) {
         return;
     }
 
-    // res.cookie('userId', user._id, {
-    //     signed: true
-    // });
-    res.redirect('/products');
+    res.cookie('userId', user[0].id, {
+        signed: true
+    });
+    res.redirect('/account');
 
 };
