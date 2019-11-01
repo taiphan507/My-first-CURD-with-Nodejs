@@ -1,0 +1,27 @@
+extends ../layouts/common.pug
+
+block content
+
+	h1 Thông tin người dùng
+
+	table.table
+		tr
+			th Name
+			th Email
+			th Phone
+			th Gender
+			th Birth
+			
+
+		each user in users
+			tr
+					td= user.name
+					td= user.email
+					td= user.phone
+					td= user.gender
+					td= user.dateofbirth
+					td
+						form(action='/user/{{user.id}}', method='delete')
+							.form-group
+							button.btn.btn-danger(type='submit') Delete Account
+

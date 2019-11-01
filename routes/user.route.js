@@ -7,6 +7,10 @@ let router = express.Router();
 
 router.get('/registerUser', controller.register);
 
+router.get('/view-user', controller.viewUser);
+
+router.delete('/:id', controller.deleteUser);
+
 router.post('/register', validate.postRegister, controller.postRegister);
 
 module.exports = router; // Note

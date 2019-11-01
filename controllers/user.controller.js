@@ -22,6 +22,30 @@ module.exports.postRegister = function (req, res) {
 
 };
 
+module.exports.viewUser = async function (req, res) {
+    let user = await User.find();
+    if (user.length) {
+        res.render('users/view', {
+            users: user
+        });
+    }
+    console.log(user)
+};
+
+
+
+module.exports.deleteUser = async function (req, res) {
+    let id = req.params.id
+    console.log(id);
+    var user = await User.findOneAndRemove({ _id: id });
+    if (user.length) {
+        req.flash("success", "Your account has been deleted.");
+    }
+    res.redirect('users/view');
+
+};
+
+
 
 
 

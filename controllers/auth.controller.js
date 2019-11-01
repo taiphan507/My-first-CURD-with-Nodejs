@@ -9,7 +9,7 @@ module.exports.postLogin = async function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var user = await User.find({ email: email });
-    console.log(user);
+    // console.log(user);
     if (!user.length) {
         res.render('users/login', {
             errors: [
@@ -34,6 +34,6 @@ module.exports.postLogin = async function (req, res) {
     res.cookie('userId', user[0].id, {
         signed: true
     });
-    res.redirect('/account');
+    res.redirect('/');
 
 };

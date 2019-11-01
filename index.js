@@ -10,7 +10,6 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
 
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
-var usermanagerRoute = require('./routes/usermanager.route');
 
 
 const port = 3000;
@@ -29,7 +28,6 @@ app.get('/', function (req, res) {
 
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
-app.use('/user-manager', usermanagerRoute);
 
 app.listen(port, function () {
     console.log('Server listening on port ' + port);
