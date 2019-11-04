@@ -29,20 +29,21 @@ module.exports.viewUser = async function (req, res) {
             users: user
         });
     }
-    console.log(user)
 };
 
 
 
 module.exports.deleteUser = async function (req, res) {
-    let id = req.params.id
-    console.log(id);
-    var user = await User.findOneAndRemove({ _id: id });
-    if (user.length) {
-        req.flash("success", "Your account has been deleted.");
+    var id = req.params.id
+    console.log(id)
+    var user = await User.findOne({ _id: id });
+    console.log(user)
+    if (user) {
+        user.remove();
+        res.redirect('users/view', {
+            users: user
+        });
     }
-    res.redirect('users/view');
-
 };
 
 

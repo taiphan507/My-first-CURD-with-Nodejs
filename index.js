@@ -11,6 +11,8 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
 
+var authMiddleware = require('./middlewares/auth.middleware');
+
 
 const port = 3000;
 app.use(bodyParser.json());
@@ -26,7 +28,7 @@ app.get('/', function (req, res) {
     res.render('index');
 })
 
-app.use('/users', userRoute);
+app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 
 app.listen(port, function () {

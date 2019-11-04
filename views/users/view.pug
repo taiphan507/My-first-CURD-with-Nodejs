@@ -21,7 +21,6 @@ block content
 					td= user.gender
 					td= user.dateofbirth
 					td
-						form(action='/user/{{user.id}}', method='delete')
+						form(method='DELETE' + user._id)
 							.form-group
 							button.btn.btn-danger(type='submit') Delete Account
-
