@@ -12,16 +12,17 @@ html
 					li.nav-item
 						a.nav-link(href='/') Trang chủ
 					li.nav-item
+					if user
 						a.nav-link(href='/users/view-user') Quản lý người dùng
 					li.nav-item
 						a.nav-link(href='/products') Sản phẩm
 					if user
 						.dropdown
-							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', values=values ? values.name : "")
-							.dropdown-menu(aria-labelledby='dropdownMenuButton')
-							a.dropdown-item(href='/information-personal') Thông tin cá nhân
-							a.dropdown-item(href='/chane-password') Đổi mật khẩu
-							a.dropdown-item(href='/logout') Đăng xuất
+							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', value=user.name)
+							.dropdown-menu(aria-labelledby='dropdownMenuButton') 
+							a.dropdown-item(href='/users/information-user') Thông tin cá nhân
+							a.dropdown-item(href='/change-password') Đổi mật khẩu
+							a.dropdown-item(href='/users/logout') Đăng xuất
 					else
 						li.nav-item
 							a.nav-link(href='/auth/login') Đăng nhập

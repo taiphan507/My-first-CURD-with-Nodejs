@@ -11,6 +11,8 @@ block content
 			th Phone
 			th Gender
 			th Birth
+			th Action
+			th Permisstion
 			
 
 		each user in users
@@ -21,6 +23,4 @@ block content
 					td= user.gender
 					td= user.dateofbirth
 					td
-						form(method='DELETE' + user._id)
-							.form-group
-							button.btn.btn-danger(type='submit') Delete Account
+						a(href='/users/delete-user/'+user._id) Xóa

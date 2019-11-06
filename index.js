@@ -24,11 +24,11 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 
-app.get('/', function (req, res) {
+app.get('/', authMiddleware.requireAuth, function (req, res) {
     res.render('index');
 })
 
-app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/users', userRoute);
 app.use('/auth', authRoute);
 
 app.listen(port, function () {

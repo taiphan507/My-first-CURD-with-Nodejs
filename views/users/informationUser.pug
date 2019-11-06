@@ -1,0 +1,22 @@
+extends ../layouts/common.pug
+
+block content
+	h1 Thông tin tài khoản
+	form
+		.form-group
+			label(for="name") Họ tên
+			input.form-control(type="text", name="name", value=values.name)
+		
+		.form-group
+			label(for="phone") SDT
+			input.form-control(type="text", name="phone", value=values.phone)
+
+		.form-group
+			label(for="email") Username(* Email)
+			input.form-control(type="text", name="email", value=values.email)
+
+		.form-group
+			label(for="dateofbirth") Ngày sinh
+			input.form-control(type="date", name="dateofbirth", value=values.dateofbirth)
+		
+		button.btn.btn-primary Sửa thông tin
