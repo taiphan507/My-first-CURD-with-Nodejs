@@ -5,13 +5,15 @@ module.exports.requireAuth = async function (req, res, next) {
 		res.redirect('/auth/login');
 		return;
 	}
-	var user = await User.find({ id: req.signedCookies.userId });
+	var user = await User.find({ _id: req.signedCookies.userId });
 
 	if (!user) {
 		res.redirect('/auth/login');
 		return;
 	}
 
-	res.locals.user = user;// locals stogare varible of user in current work session 
+	res.locals.user = user[0];// locals stogare varible of user in current work session 
+	console.log("USER:", user);
+	console.log("Local: ", res.locals.user);
 	next();
 };

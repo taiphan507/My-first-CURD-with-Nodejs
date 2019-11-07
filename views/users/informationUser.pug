@@ -2,21 +2,21 @@ extends ../layouts/common.pug
 
 block content
 	h1 Thông tin tài khoản
-	form
+	form(action="")
 		.form-group
 			label(for="name") Họ tên
-			input.form-control(type="text", name="name", value=values.name)
+			input.form-control(type="text", name="name", value=user.name)
 		
 		.form-group
 			label(for="phone") SDT
-			input.form-control(type="text", name="phone", value=values.phone)
+			input.form-control(type="text", name="phone", value=user.phone)
 
 		.form-group
 			label(for="email") Username(* Email)
-			input.form-control(type="text", name="email", value=values.email)
+			input.form-control(type="text", name="email", value=user.email disabled)
 
 		.form-group
 			label(for="dateofbirth") Ngày sinh
-			input.form-control(type="date", name="dateofbirth", value=values.dateofbirth)
+			input.form-control(type="date", name="dateofbirth", value=user.dateofbirth)
 		
 		button.btn.btn-primary Sửa thông tin

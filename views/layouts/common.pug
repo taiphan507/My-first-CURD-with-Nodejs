@@ -20,7 +20,7 @@ html
 						.dropdown
 							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', value=user.name)
 							.dropdown-menu(aria-labelledby='dropdownMenuButton') 
-							a.dropdown-item(href='/users/information-user') Thông tin cá nhân
+							a.dropdown-item(href='/users/information-user/'+user._id) Thông tin cá nhân
 							a.dropdown-item(href='/change-password') Đổi mật khẩu
 							a.dropdown-item(href='/users/logout') Đăng xuất
 					else

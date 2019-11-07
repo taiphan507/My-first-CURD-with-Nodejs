@@ -36,18 +36,13 @@ module.exports.viewUser = async function (req, res) {
 module.exports.deleteUser = async function (req, res) {
     var id = req.params.id;
     await User.findByIdAndRemove({ _id: id });
-    res.redirect('users/view');
+    res.render('users/view');
 };
 
 module.exports.informationUser = async function (req, res) {
-    let id = req.params.id;
-    let user = await User.find({ _id: id });
-    console.log(user[0])
-    if (user.length) {
-        res.render('users/informationUser', {
-            values: user[0]
-        });
-    }
+    res.render('users/informationUser', {
+        user: res.locals.user
+    });
 };
 
 module.exports.logoutUser = function (req, res) {
