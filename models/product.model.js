@@ -1,34 +1,33 @@
 const mongoose = require('mongoose');
 
-let registerSchema = new mongoose.Schema({
-    name: {
+let productSchema = new mongoose.Schema({
+    image: {
         type: String,
         require: true,
     },
-    phone: {
+    title: {
         type: String,
         require: true
     },
-    email: {
+    author: {
         type: String,
         require: true
     },
-    password: {
+    price: {
         type: String,
         require: true,
     },
-    confirmPassword: {
+    amount: {
         type: String,
         require: true,
     },
-    gender: {
+    content: {
         type: String,
         require: true,
-        default: "Nam"
     },
-    dateofbirth: {
+    category: {
         type: String,
-        default: "01/1/1970"
+        required: true,
     },
     created_at: {
         type: Date,
@@ -39,13 +38,9 @@ let registerSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         required: true
-    },
-    roles: {
-        type: Number,
-        default: "0"
     }
 });
 
-let User = mongoose.model('User', registerSchema, 'users');
+let Product = mongoose.model('Product', productSchema, 'products');
 
-module.exports = User;	
+module.exports = Product;	

@@ -2,7 +2,11 @@ extends ../layouts/common.pug
 
 block content
 	h1 Thông tin tài khoản
-	form(action="")
+	if errors
+		each error in errors
+			.alert.alert-danger= error
+			
+	form(method="POST")
 		.form-group
 			label(for="name") Họ tên
 			input.form-control(type="text", name="name", value=user.name)
@@ -20,3 +24,6 @@ block content
 			input.form-control(type="date", name="dateofbirth", value=user.dateofbirth)
 		
 		button.btn.btn-primary Sửa thông tin
+
+
+

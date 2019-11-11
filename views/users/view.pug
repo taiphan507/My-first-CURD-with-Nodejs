@@ -2,7 +2,15 @@ extends ../layouts/common.pug
 
 block content
 
+	if errors
+		each error in errors
+			.alert.alert-danger= error
+
 	h1 Thông tin người dùng
+	form(action='/users/search', method="GET")
+		.form-group
+			input.form-control(type="text", name="search")
+		button.btn.btn-primary Search
 
 	table.table
 		tr
@@ -24,3 +32,9 @@ block content
 					td= user.dateofbirth
 					td
 						a(href='/users/delete-user/'+user._id) Xóa
+					td
+						form(action='/users/change-roles/'+user._id, method="POST")
+							.form-group
+								input.form-control(type="text", name="roles", value=user.roles)
+							button.btn.btn-primary Upgrade
+

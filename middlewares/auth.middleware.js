@@ -13,7 +13,5 @@ module.exports.requireAuth = async function (req, res, next) {
 	}
 
 	res.locals.user = user[0];// locals stogare varible of user in current work session 
-	console.log("USER:", user);
-	console.log("Local: ", res.locals.user);
 	next();
 };

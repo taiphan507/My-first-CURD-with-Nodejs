@@ -1,17 +1,18 @@
 require('dotenv').config();
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var mongoose = require('mongoose');
+let express = require('express');
+let app = express();
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let mongoose = require('mongoose');
 
 mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-var userRoute = require('./routes/user.route');
-var authRoute = require('./routes/auth.route');
+let userRoute = require('./routes/user.route');
+let authRoute = require('./routes/auth.route');
+let productRoute = require('./routes/product.route');
 
-var authMiddleware = require('./middlewares/auth.middleware');
+let authMiddleware = require('./middlewares/auth.middleware');
 
 
 const port = 3000;
@@ -30,6 +31,7 @@ app.get('/', authMiddleware.requireAuth, function (req, res) {
 
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
+app.use('/products', productRoute);
 
 app.listen(port, function () {
     console.log('Server listening on port ' + port);
